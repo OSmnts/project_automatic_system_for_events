@@ -29,7 +29,7 @@ namespace sport_complex
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-RLDAVIH;Initial Catalog=usersdb;Integrated Security=True");
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True");
                 con.Open();
                
                 if (textBox1.Text != String.Empty && textBox2.Text != String.Empty) // check if there are text inside textboxes

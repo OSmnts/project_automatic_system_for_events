@@ -28,12 +28,12 @@ namespace sport_complex
                     
                         try
                         {
-                            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-RLDAVIH;Initial Catalog=usersdb;Integrated Security=True");
+                            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True");
 
                             con.Open();
 
 
-                            string query = "select * from DB_LOG where USER_LOGIN = '" + textBox_login.Text + "';";
+                            string query = "select * from DB_LOG where LOGIN_name = '" + textBox_login.Text + "';";
                             SqlCommand cmd = new SqlCommand(query, con);
                         
                             SqlDataReader dr = cmd.ExecuteReader();
@@ -45,14 +45,14 @@ namespace sport_complex
                                     MessageBox.Show("Invalid password.");
                                 }
                         //пользователь существует, проверка пароля успешная
-                        else
+                                else
                         {
                             //запись в файл для вывода информации
 
                             string log = textBox_login.Text;
                             
 
-                            System.IO.File.WriteAllText(@"D:\arya\sport_complex\sport_complex\sport_complex\userdata.txt", log);
+                            System.IO.File.WriteAllText(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\userdata.txt", log);
                             
 
                             Form2 form2 = new Form2();

@@ -20,27 +20,34 @@ namespace sport_complex
         public account()
         {
             InitializeComponent();
- SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-RLDAVIH;Initial Catalog=usersdb;Integrated Security=True");
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True");
 
-        con.Open();
+                con.Open();
 
-            string currlog = System.IO.File.ReadAllText(@"D:\arya\sport_complex\sport_complex\sport_complex\userdata.txt");
-            //считываю логин с текстового файла чтобы по нему найти пользователя
-            Console.WriteLine(currlog);
-           
-        string query = "select * from DB_LOG where USER_LOGIN = '" + currlog.ToString() + "';";
-        SqlCommand cmd = new SqlCommand(query, con);
-        SqlDataReader dr = cmd.ExecuteReader();
-         if (dr.Read())
-    {
-         
-        textBox2.Text = (dr["username"].ToString());
-        textBox1.Text = (dr["user_login"].ToString());
-            
-                textBox3.Text = (dr["telephone"].ToString());
-                textBox4.Text = (dr["age"].ToString());
-    }
-    con.Close();
+                string currlog = System.IO.File.ReadAllText(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\userdata.txt");
+                //считываю логин с текстового файла чтобы по нему найти пользователя
+                Console.WriteLine(currlog);
+
+                string query = "SELECT * FROM db_log WHERE login_name = '" + currlog.ToString() + "';";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+
+                    textBox2.Text = (dr["username"].ToString());
+                    textBox1.Text = (dr["login_name"].ToString());
+
+                    textBox3.Text = (dr["telephone"].ToString());
+                    textBox4.Text = (dr["age"].ToString());
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
      

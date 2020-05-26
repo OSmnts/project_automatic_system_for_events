@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
-
+using System.Text;
 
 
 namespace sport_complex
@@ -18,15 +18,21 @@ namespace sport_complex
         [STAThread]
         static void Main()
         {
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-     
+        
+ 
            
-            Console.Read();
-            
+            Console.ReadLine();
+
+           
         }
-      
-       
+
+        
+
     }
+
 }

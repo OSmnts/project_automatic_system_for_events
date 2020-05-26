@@ -21,8 +21,41 @@ namespace sport_complex
             InitializeComponent();
             
         }
- 
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-RLDAVIH;Initial Catalog=usersdb;Integrated Security=True");
+
+
+        public void CollectUsers()
+        {
+            List<userClass> users = new List<userClass>();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = "Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True";
+                conn.Open();
+
+                using (SqlCommand myQuery = new SqlCommand("SELECT * FROM DB_LOG);", conn))
+                using (SqlDataReader myReader = myQuery.ExecuteReader())
+                {
+                    while (myReader.Read())
+                    {
+                        var user = new userClass();
+
+                        user.login_name = myReader["login_name"].ToString();
+                        user.password = myReader["password"].ToString();
+                        user.age = (int)myReader["age"];
+                        user.special_user = (int)myReader["special_user"];
+                        user.telephone = (int)myReader["telephone"];
+
+                        users.Add(user);
+
+
+                    }
+                }
+
+            }
+        }
+
+
+
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True");
 
         
         
@@ -66,24 +99,28 @@ namespace sport_complex
         private void button_createEvent_Click(object sender, EventArgs e)
         {
             //check if this user has privelegue 
+            try
+            {
+                string currlog = System.IO.File.ReadAllText(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\userdata.txt");
+                //считываю логин с ткст
 
-       /*       string[] lines = System.IO.File.ReadAllLines(@"D:\arya\sport_complex\sport_complex\sport_complex\userdata_log.txt");
-            List<string> Source = new List<string>();
-            foreach (string line in lines)
-            {
-                Source.Add(line);
-            }
-          for (int i = 0; i < Source.Count; i++) 
-            {
-               
-                if (Source[i] != formData[i])
+
+                con.Open();
+                string query = "SELECT * FROM DB_LOG WHERE login_name ='"+currlog.ToString()+"';";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
                 {
-                    MessageBox.Show("Такого користувача не існує. Перевірте правильність логіну та паролю.");
-                    this.ResetText();
-                }
-           }
 
- */
+                }
+                
+            }
+                   
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+      
             createEvent cEvent = new createEvent();
            
             cEvent.ShowDialog();
@@ -101,8 +138,9 @@ namespace sport_complex
 
         private void button_update_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-RLDAVIH;Initial Catalog=usersdb;Integrated Security=True");
-
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True");
+            try
+            {
             con.Open();
             string selectQuery = "SELECT * FROM event";
             DataTable table = new DataTable();
@@ -112,6 +150,12 @@ namespace sport_complex
 
             SDA.SelectCommand.ExecuteNonQuery();
             con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
 
         }
         //вібор ивента
