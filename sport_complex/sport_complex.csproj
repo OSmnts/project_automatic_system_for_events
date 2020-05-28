@@ -95,7 +95,6 @@
     <Compile Include="createEvent.Designer.cs">
       <DependentUpon>createEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="eventClass.cs" />
     <Compile Include="EventRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,7 +126,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="users.cs" />
     <Compile Include="usersdbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -32,35 +32,42 @@ namespace sport_complex
                 SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True");
                 con.Open();
                
-                if (textBox1.Text != String.Empty && textBox2.Text != String.Empty) // check if there are text inside textboxes
+                if (textBox1.Text != String.Empty && textBox2.Text != String.Empty && textBox_city.Text != String.Empty ) // check if there are text inside textboxes
                 {
-
-                    string query = "INSERT INTO event(name,date,price,maxnumber) VALUES ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "');";
-                    SqlDataAdapter SDA = new SqlDataAdapter(query, con);
-                    SDA.SelectCommand.ExecuteNonQuery();
-
-                    string caption = "Ваша подія додана до реєстру.";
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result;
-                    string message = "Бажаєте додати ще?";
-                    // Displays the MessageBox.
-                    result = MessageBox.Show(message, caption, buttons);
-                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    try
                     {
-                        // пользователь хочет добавить еще одно мероприятие -- очистить все поля
-                        textBox1.Clear();
-                        textBox2.Clear();
-                        textBox3.Clear();
-                        textBox4.Clear();
+                        string query = "INSERT INTO event(name,date,price,maxnumber, city) VALUES ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox_city.Text + "');";
+                        SqlDataAdapter SDA = new SqlDataAdapter(query, con);
+                        SDA.SelectCommand.ExecuteNonQuery();
 
+                        string caption = "Ваша подія додана до реєстру.";
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                        DialogResult result;
+                        string message = "Бажаєте додати ще?";
+                        // Displays the MessageBox.
+                        result = MessageBox.Show(message, caption, buttons);
+                        if (result == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            // пользователь хочет добавить еще одно мероприятие -- очистить все поля
+                            textBox1.Clear();
+                            textBox2.Clear();
+                            textBox3.Clear();
+                            textBox4.Clear();
+                            textBox_city.Clear();
+
+                        }
+                        else
+                        {
+                            this.Hide();
+
+
+                        }
                     }
-                    else
+                    catch (ArgumentException ae)
                     {
-                       
-                        Form2 form2Update = new Form2();
-                        form2Update.Show();
-                        
+                        MessageBox.Show(ae.ToString());
                     }
+
                 }
                 else
                 {

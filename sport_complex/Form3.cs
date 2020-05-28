@@ -49,7 +49,7 @@ namespace sport_complex
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.IO.File.WriteAllText(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\userdata.txt", String.Empty);
+            //System.IO.File.WriteAllText(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\userdata.txt", String.Empty);
 
             // проверка на наличие пустых полей
             if (textbox_userlogin.Text != " " && textbox_password.Text != " " && textBox_name.Text != "")
@@ -58,39 +58,33 @@ namespace sport_complex
 
                 try
                 {
+                    con.Open();
 
-                    // проверка на уникальность логина - извлечение из бд данных
-                    string uniqueLog = "select * from db_log where login_name = '" + textbox_userlogin.Text + "';";
-                    SqlDataAdapter SDALog = new SqlDataAdapter(uniqueLog, con);
-                    SDALog.SelectCommand.ExecuteNonQuery();
-                    //
+                     string lines = textbox_userlogin.Text.ToString();
+                    System.IO.File.WriteAllText(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\userdata.txt", lines);
 
 
-
-                    //проверка на уникальность логина
                     string query = "INSERT INTO db_log(login_name,password,username,telephone,age) VALUES ('" + textbox_userlogin.Text + "','" + textbox_password.Text + "','" + textBox_name.Text + "','" + textBox_telephone.Text + "','" + textBox_age.Text + "')";
                     SqlDataAdapter SDA = new SqlDataAdapter(query, con);
                     SDA.SelectCommand.ExecuteNonQuery();
 
-                    if (checkBox_spuser.Checked == true)
+           /*         if (checkBox_spuser.Checked == true)
                     {
-                        string query1 = "INSERT INTO db_log(special_user) VALUES 1";
+                        string query1 = "INSERT INTO db_log(special_user) VALUES (1) where login_name='" + textbox_userlogin.Text.ToString() + "';";
                         SqlDataAdapter SDA1 = new SqlDataAdapter(query1, con);
                         SDA1.SelectCommand.ExecuteNonQuery();
 
-                        string[] sp_user = { "special user" };
-                        System.IO.File.WriteAllLines(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\userdata.txt", sp_user);
+                        string sp_user = "special user";
+                        System.IO.File.WriteAllText(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\userdata.txt", sp_user);
 
                     }
                     else
                     {
-                        string query2 = "INSERT INTO db_log(special_user) VALUES 2";
+                        string query2 = "INSERT INTO db_log(special_user) VALUES (2) where login_name='"+ textbox_userlogin.Text.ToString()+"';";
                         SqlDataAdapter SDA2 = new SqlDataAdapter(query2, con);
                         SDA2.SelectCommand.ExecuteNonQuery();
                     }
-                    string lines = textbox_userlogin.Text.ToString();
-                    System.IO.File.WriteAllText(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\userdata.txt", lines);
-
+                */   
 
 
                     MessageBox.Show("INSERTED SUCCESSFULLY");

@@ -23,7 +23,7 @@ namespace sport_complex
         }
 
 
-        public void CollectUsers()
+       /* public void CollectUsers()
         {
             List<userClass> users = new List<userClass>();
             using (SqlConnection conn = new SqlConnection())
@@ -53,7 +53,7 @@ namespace sport_complex
             }
         }
 
-
+    */
 
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True");
 
@@ -63,8 +63,8 @@ namespace sport_complex
 
         private void Form2_Load(object sender, EventArgs e)
         {
-      
-            con.Open();
+      con.Open();
+            
         string selectQuery = "SELECT * FROM event";
             DataTable table = new DataTable();
         SqlDataAdapter SDA = new SqlDataAdapter(selectQuery, con);
@@ -161,7 +161,10 @@ namespace sport_complex
         //вібор ивента
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value !=null)
+           var cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            if (cell.Value != null)// || string.IsNullOrWhiteSpace(cell.Value.ToString()))
+               // if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value !=null)
             {
                 dataGridView1.CurrentRow.Selected = true;
                 string caption = dataGridView1.Rows[e.RowIndex].Cells["name"].FormattedValue.ToString();
@@ -172,11 +175,17 @@ namespace sport_complex
                 result = MessageBox.Show(message, caption, buttons);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
+                    MessageBox.Show("Ви зареєструвались на вибрану подію!");
                     // пользователь хочет зарегистрироваться
                     //запись лога в файл для последующего извлечения в бд таблицу пользователя
 
                 }
 
+            }
+
+            else
+            {
+                MessageBox.Show("Реєстрація не доступна.");
             }
         }
     }

@@ -1,21 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="sport_complex.userClass">
-    <Position X="1.75" Y="2" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAEAAAAAAgAQQAAAAAAAAAEAAAAAAAAAAAAAAgCAAgA=</HashCode>
-      <FileName>users.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="eventClass" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="sport_complex.eventClass">
-    <Position X="5.5" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAAAAAAAAQAAAAAEAAAAAAAAAQAAAgA=</HashCode>
-      <FileName>eventClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

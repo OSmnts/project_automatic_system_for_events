@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBox_city = new System.Windows.Forms.TextBox();
+            this.citylabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +61,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(145, 132);
+            this.textBox2.Location = new System.Drawing.Point(145, 180);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(403, 20);
             this.textBox2.TabIndex = 2;
@@ -67,14 +69,14 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(145, 177);
+            this.textBox3.Location = new System.Drawing.Point(145, 225);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(403, 20);
             this.textBox3.TabIndex = 3;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(145, 222);
+            this.textBox4.Location = new System.Drawing.Point(145, 270);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(403, 20);
             this.textBox4.TabIndex = 4;
@@ -101,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(147, 116);
+            this.label3.Location = new System.Drawing.Point(147, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 13);
             this.label3.TabIndex = 7;
@@ -110,7 +112,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(147, 161);
+            this.label4.Location = new System.Drawing.Point(147, 209);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(298, 13);
             this.label4.TabIndex = 8;
@@ -119,17 +121,35 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(147, 206);
+            this.label5.Location = new System.Drawing.Point(147, 254);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Максимальна кількість учасників";
+            // 
+            // textBox_city
+            // 
+            this.textBox_city.Location = new System.Drawing.Point(145, 141);
+            this.textBox_city.Name = "textBox_city";
+            this.textBox_city.Size = new System.Drawing.Size(403, 20);
+            this.textBox_city.TabIndex = 10;
+            // 
+            // citylabel
+            // 
+            this.citylabel.AutoSize = true;
+            this.citylabel.Location = new System.Drawing.Point(147, 125);
+            this.citylabel.Name = "citylabel";
+            this.citylabel.Size = new System.Drawing.Size(35, 13);
+            this.citylabel.TabIndex = 11;
+            this.citylabel.Text = "Місто";
             // 
             // createEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 428);
+            this.Controls.Add(this.citylabel);
+            this.Controls.Add(this.textBox_city);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -160,5 +180,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox_city;
+        private System.Windows.Forms.Label citylabel;
     }
 }
