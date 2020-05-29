@@ -12,14 +12,30 @@ using System.Data.SqlClient;
 using MetroFramework.Controls;
 using MetroFramework.Forms;
 using MetroFramework;
+using System.Data.Linq;
+using ClassLibrary;
 
 namespace sport_complex
 {
+   
     public partial class account : MetroForm
     {
+        static string connectionString = "@Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True";
+
         public account()
         {
             InitializeComponent();
+            ///trying to use LINQ for better connection with database
+          //  DataContext db = new DataContext(connectionString);
+          //  public System.Data.Linq.Table<TEntity> GetTable<TEntity>() where TEntity : class;
+          //  Table<usersCl> users = db.GetTable<usersCl>();
+         
+            
+
+
+
+
+
             try
             {
                 SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True");

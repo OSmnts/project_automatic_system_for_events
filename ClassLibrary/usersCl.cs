@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Linq.Mapping;
 
 namespace ClassLibrary
 {
+    [Table(Name = "db_log")]
     public class usersCl
     {
+        [Column(IsPrimaryKey =true, IsDbGenerated = true)]
         public int id
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+            get;
 
-            set
-            {
-            }
+
+            set;
+        
         }
-
+        [Column(Name = "login_name")]
         public string login_name
         {
             get
@@ -30,7 +30,7 @@ namespace ClassLibrary
             {
             }
         }
-
+        [Column(Name = "password")]
         public string password
         {
             get
@@ -42,7 +42,7 @@ namespace ClassLibrary
             {
             }
         }
-
+        [Column(Name = "telephone")]
         public int telephone
         {
             get
@@ -54,7 +54,7 @@ namespace ClassLibrary
             {
             }
         }
-
+        [Column(Name = "age")]
         public int age
         {
             get
@@ -66,7 +66,7 @@ namespace ClassLibrary
             {
             }
         }
-
+        [Column(Name = "sp_user")]
         public bool sp_user
         {
             get
@@ -78,7 +78,7 @@ namespace ClassLibrary
             {
             }
         }
-
+        [Column(Name = "username")]
         public string username
         {
             get

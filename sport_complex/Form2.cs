@@ -118,7 +118,7 @@ namespace sport_complex
                    
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+              //  MessageBox.Show(ex.ToString());
             }
       
             createEvent cEvent = new createEvent();
@@ -168,18 +168,25 @@ namespace sport_complex
             {
                 dataGridView1.CurrentRow.Selected = true;
                 string caption = dataGridView1.Rows[e.RowIndex].Cells["name"].FormattedValue.ToString();
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
-                string message = "Бажаєте зареєструватися?";
+                //запись имени ивента в лог файл
+                System.IO.File.WriteAllText(@"C:\Users\arina\Source\Repos\comradearya\project_automatic_system_for_events\sport_complex\currEv.txt", caption.ToString());
+                Console.Write(caption.ToString());
+
+                //MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                //DialogResult result;
+               ///string message = "Бажаєте зареєструватися?";
                 // Displays the MessageBox.
-                result = MessageBox.Show(message, caption, buttons);
-                if (result == System.Windows.Forms.DialogResult.Yes)
-                {
-                    MessageBox.Show("Ви зареєструвались на вибрану подію!");
+                //result = MessageBox.Show(message, caption, buttons);
+                //if (result == System.Windows.Forms.DialogResult.Yes)
+               // {
+                    //MessageBox.Show("Ви зареєструвались на вибрану подію!");
                     // пользователь хочет зарегистрироваться
                     //запись лога в файл для последующего извлечения в бд таблицу пользователя
+                    EventRegistration RegistrationWin = new EventRegistration();
+                    RegistrationWin.Show();
+                    this.Hide();
 
-                }
+                //}
 
             }
 

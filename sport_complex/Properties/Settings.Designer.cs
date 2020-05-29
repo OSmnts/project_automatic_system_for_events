@@ -53,5 +53,15 @@ namespace sport_complex.Properties {
                 return ((string)(this["usersdbConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-9TLFS8I;Initial Catalog=USERSDB;Integrated Security=True")]
+        public string USERSDBConnectionString1 {
+            get {
+                return ((string)(this["USERSDBConnectionString1"]));
+            }
+        }
     }
 }
